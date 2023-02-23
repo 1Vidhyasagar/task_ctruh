@@ -1,0 +1,12 @@
+.zoom-in-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.zoom-in-view img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
