@@ -14,6 +14,9 @@ const Canvas = () => {
   const [selectedColor, setSelectedColor] = useState(colorOptions[0].value);
   const [canvasWidth, setCanvasWidth] = useState(400);
   const [canvasHeight, setCanvasHeight] = useState(400);
+  const [showZoom, setShowZoom] = useState(false);
+  const [zoomX, setZoomX] = useState(0);
+  const [zoomY, setZoomY] = useState(0);
 
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
@@ -33,6 +36,28 @@ const Canvas = () => {
 
   const handleCanvasHeightChange = (event) => {
     setCanvasHeight(event.target.value);
+  };
+
+  const handleNumberMouseEnter = (event) => {
+    setShowZoom(true);
+    setZoomX(event.evt.clientX);
+    setZoomY(event.evt.clientY);
+  };
+
+  const handleNumberMouseLeave = () => {
+    setShowZoom(false);
+  };
+
+  const zoomStyle = {
+    position: "absolute",
+    top: zoomY + 10,
+    left: zoomX + 10,
+    width: "100px",
+    height: "100px",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #000000",
+    borderRadius: "5px",
+    overflow: "hidden",
   };
 
   return (
@@ -80,10 +105,28 @@ const Canvas = () => {
             fill="#000000"
             x={canvasWidth / 2 - 75}
             y={canvasHeight / 2 - 75}
-            draggable
+            onMouseEnter={handleNumberMouseEnter}
+            onMouseLeave={handleNumberMouseLeave}
           />
         </Layer>
       </Stage>
+      {showZoom && (
+        <div style={zoomStyle}>
+          <Stage width={100} height={100}>
+            <Layer>
+              <Rect width={100} height={100} fill={selectedColor} />
+              <Text
+                text={number}
+                fontSize={40}
+                fontFamily="Helvetica"
+                fill="#000000"
+                x={50 - number.length * 10}
+                y={30}
+              />
+            </Layer>
+          </Stage>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,48 @@
+/* styles.css */
+
+/* Center the canvas element */
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1; /* add a light background color */
+}
+
+/* Make the canvas element responsive */
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border: 1px solid #ccc; /* add a border to the canvas element */
+}
+
+/* Style the color picker */
+.react-color-picker {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/* Style the dropdown */
+.select-container {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/* Style the zoomed-in view */
+.zoom-view {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  pointer-events: none; /* make the zoomed-in view not clickable */
+}
+
+/* Style the 2D overlay digit */
+.number {
+  font-size: 100px;
+  font-weight: bold;
+  pointer-events: auto; /* make the 2D overlay digit clickable */
+  cursor: zoom-in; /* change the cursor to zoom-in */
+}
