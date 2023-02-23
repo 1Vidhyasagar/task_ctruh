@@ -2,7 +2,7 @@
 This is a simple React app that uses the react-color and react-konva libraries to create a canvas element with a color picker and a 2-digit overlay element that can be dynamically changed. The canvas can be resized in both the x and y axes, and hovering over the 2-digit element displays a zoomed-in view.
 
 ## Demo video
-Check out video for a quick demo of the app in site demo folder.
+Check out video for a quick demo of the app in site demo video folder.
 
 ## Screenshot of Canvas React App
 Check out screensho photos for a quick idea of the app in site screenshot folder.
